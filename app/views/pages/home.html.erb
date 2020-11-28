@@ -1,4 +1,4 @@
-<div class="align-content-center flex-wrap">
+<div class="ImgBackground">
     <form class="form-signin">
         <img class="mb-4" src="https://img.icons8.com/dotty/80/000000/shopping-cart.png" width="80" height="80">
         <h1 class="h3 mb-3 font-weight-normal"> <u>Welcome to the Store</u></h1>
@@ -12,7 +12,7 @@
             <h2 class="h5 mb-3 font-weight-normal"> <img src="https://img.icons8.com/ios/50/000000/facebook--v1.png" width ="40" height="40"/> <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %> </h2>
             <h2 class="h5 mb-3 font-weight-normal"> <img src="https://img.icons8.com/carbon-copy/100/000000/google-logo.png" width="40" height="40"/> <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %> </h2>
         <% else %>
-            <%# <h2></h2> Link_to procceed (IE link to main store page) %>
+            <h3 class="h4 mb-3 font-weight-normal"> <%= link_to "Proceed", destroy_user_session_path, method: :delete %> </h3>
             <h3 class="h6 mb-3 font-weight-normal"> <%= link_to "Logout", destroy_user_session_path, method: :delete %> </h3>
         <% end %>
     </form>

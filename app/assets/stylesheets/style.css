@@ -1,12 +1,32 @@
 .form-signin {
-    padding: 15px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 30%;
-    border: 3px dashed;
-  }
+  margin-top: 12vh;
+  padding: 5px;
+  background-color: white;
+  padding: 15px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 30%;
+  border: 3px dashed black;
+}
 
-  h2{
-    text-align: left;
-  }
+h2{
+  text-align: left;
+}
+
+body{
+  width: 100%;
+  height: 100vh;
+  color: black;
+  background: linear-gradient(-45deg, #808080, #606060, #404040, #202020);
+  background-size: 400% 400%;
+  position: relative;
+  animation: change 10s ease-in-out infinite;
+  background-repeat: repeat-y;
+}
+
+@keyframes change {
+  0%{ background-position: 0 50%; }
+  50%{ background-position: 100% 50%; }
+  100%{ background-position: 0 50%; }
+}
