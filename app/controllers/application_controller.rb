@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
     require 'google/apis/people_v1'
     require 'google/api_client/client_secrets.rb'
-    class ApplicationController < ActionController::Base
     People = Google::Apis::PeopleV1
     def contacts
         secrets = Google::APIClient::ClientSecrets.new(
@@ -22,6 +21,5 @@ class ApplicationController < ActionController::Base
         person_fields: ['names', 'emailAddresses', 'phoneNumbers']
         )
         render json: response
-    end
     end
 end
