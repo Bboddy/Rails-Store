@@ -9,7 +9,6 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  config.omniauth :google_oauth2, ENV['GOOGLE_OAUTH_CLIENT_ID'], ENV['GOOGLE_OAUTH_CLIENT_SECRET']
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -309,20 +308,10 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
-  # d31028f865ab21abaa8569c7f1c7a87f
+
+  # config.omniauth :service, "App ID", "App Secret", callback_url: "http://localhost:3000/users/auth/service/callback"
+
   config.omniauth :facebook, "204739824536220", "aab38d9d14dfdf5442ec3ef4e76024f1", callback_url: "http://localhost:3000/users/auth/facebook/callback"
-
   config.omniauth :github, "ed077f620c7bb07ac17d", "5b681fa831316828a0b91a3c977b67cd6fdf2966", callback_url: "http://localhost:3000/users/auth/github/callback"
-
-  config.omniauth :github, "447676977838-85s37r9dsie85molt93c0mmr4v1tuaip.apps.googleusercontent.com", "vIPAJDFYBUguR50T1XOHQqHg", callback_url: "http://localhost:3000/users/auth/github/callback"
-
-  # This didnt work
-
-  # github_client_id = Rails.application.credentials.github[:client_id]
-  # github_client_secret = Rails.application.credentials.github[:client_secret]
-  # config.omniauth :github, github_client_id, github_client_secret, scope: 'user,public_repo'
-
-  # google_client_id = Rails.application.credentials.google_oauth2[:client_id]
-  # google_client_secret = Rails.application.credentials.google_oauth2[:client_secret]
-  # config.omniauth :google_oauth2, google_client_id, google_client_secret, scope: 'userinfo.email,userinfo.profile', skip_jwt: true
+  config.omniauth :google_oauth2, "447676977838-85s37r9dsie85molt93c0mmr4v1tuaip.apps.googleusercontent.com", "vIPAJDFYBUguR50T1XOHQqHg", callback_url: "http://localhost:3000/users/auth/github/callback"
 end
