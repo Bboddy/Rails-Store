@@ -311,7 +311,8 @@ Devise.setup do |config|
 
   # config.omniauth :service, "App ID", "App Secret", callback_url: "http://localhost:3000/users/auth/service/callback"
 
+  # These should belong inside 
   config.omniauth :facebook, "204739824536220", "aab38d9d14dfdf5442ec3ef4e76024f1", callback_url: "http://localhost:3000/users/auth/facebook/callback"
-  config.omniauth :github, "ed077f620c7bb07ac17d", "5b681fa831316828a0b91a3c977b67cd6fdf2966", callback_url: "http://localhost:3000/users/auth/github/callback"
-  config.omniauth :google_oauth2, "447676977838-85s37r9dsie85molt93c0mmr4v1tuaip.apps.googleusercontent.com", "vIPAJDFYBUguR50T1XOHQqHg", callback_url: "http://localhost:3000/users/auth/github/callback"
+  config.omniauth :github, "ed077f620c7bb07ac17d", "5b681fa831316828a0b91a3c977b67cd6fdf2966", callback_url: "http://localhost:3000/users/auth/github/callback", redirect_uri: "http://localhost:3000/#_=_"
+  config.omniauth :google_oauth2, "447676977838-85s37r9dsie85molt93c0mmr4v1tuaip.apps.googleusercontent.com", "vIPAJDFYBUguR50T1XOHQqHg", callback_url: "http://localhost:3000/users/auth/google_oauth2/callback", skip_jwt: true
 end
