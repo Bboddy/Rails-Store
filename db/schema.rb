@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_03_130036) do
+ActiveRecord::Schema.define(version: 2020_12_03_131122) do
 
   create_table "carts", force: :cascade do |t|
     t.decimal "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "order_id"
+    t.index ["order_id"], name: "index_carts_on_order_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
@@ -26,16 +28,8 @@ ActiveRecord::Schema.define(version: 2020_12_03_130036) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.string "address"
-    t.decimal "total_price"
-    t.string "shipping_time"
-    t.string "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
-  end
+# Could not dump table "orders" because of following StandardError
+#   Unknown type 'reference' for column 'cart'
 
   create_table "products", force: :cascade do |t|
     t.string "name"

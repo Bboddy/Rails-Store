@@ -1,8 +1,9 @@
 class User < ApplicationRecord
+  #Associations
   has_one :cart, class_name: "cart", foreign_key: "cart_id"
-  has_many :products, through: :cart
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_many :products, class_name: "product", foreign_key: "reference_id"
+  has_many :orders, class_name: "order", foreign_key: "reference_id"
+  #Devise
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook, :google_oauth2, :github]
@@ -19,7 +20,7 @@ class User < ApplicationRecord
       end
     end
   end
-
+  #Omniauth
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.password = Devise.friendly_token[0,20]
