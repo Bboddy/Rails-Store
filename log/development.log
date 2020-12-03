@@ -13723,3 +13723,26 @@ Migrating to AddUserToOrder (20201203125647)
   ↳ /home/password/.rvm/gems/ruby-2.6.3/bin/rake:23
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /home/password/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/password/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to AddCategoryToProduct (20201203130036)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/password/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "products" ADD "category_id" integer[0m
+  ↳ db/migrate/20201203130036_add_category_to_product.rb:3
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20201203130036_add_category_to_product.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_products_on_category_id" ON "products" ("category_id")[0m
+  ↳ db/migrate/20201203130036_add_category_to_product.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201203130036"]]
+  ↳ /home/password/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/password/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/password/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/password/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/password/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/password/.rvm/gems/ruby-2.6.3/bin/rake:23
