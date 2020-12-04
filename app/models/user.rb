@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   #Associations
-  has_one :cart, class_name: "cart", foreign_key: "cart_id"
-  has_many :products, class_name: "product", foreign_key: "reference_id"
-  has_many :orders, class_name: "order", foreign_key: "reference_id"
+  has_one :cart
+  has_many :products
+  has_many :orders
   #Devise
 
   def self.setup()

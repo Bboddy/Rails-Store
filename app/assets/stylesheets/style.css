@@ -1,3 +1,7 @@
+html{
+  overflow: hidden;
+}
+
 .form-signin{
   margin-top: 12vh;
   padding: 5px;
