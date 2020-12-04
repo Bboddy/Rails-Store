@@ -1,3 +1,5 @@
+<h1 class="store-front"> Shop Rails! </h1>
+
 <div>
     <%# If logged in %>
     <% if current_user%>
@@ -6,7 +8,7 @@
             
             <ul class="list-group">
                 <% @products. each do |p| %>
-                    <a id="products" class="list-group-item list-group-item-action"> <h4 id="product"> <%= p.name %> </h4> <%= p.price%> </a>
+                    <a id="products" class="list-group-item list-group-item-action"> <h4 id="product"> <%= p.name %> </h4> <%= number_to_currency p.price%> </a>
                 <% end %>
             </ul>
             <h6 class="title"> <%= link_to "Back to Categories", '/categories'%> </h6>
