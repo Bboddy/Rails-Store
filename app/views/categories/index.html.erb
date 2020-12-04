@@ -1,0 +1,23 @@
+<div>
+    <%# If logged in %>
+    <% if current_user%>
+        <h1>Categories</h1>
+        <ol>
+            <% @categories. each do |c| %>
+                <li>
+                    <%= c.title %>
+                </li>
+            <% end %>
+        <ol>
+    <% end %>
+
+    <%# If not logged in %>
+    
+        <% unless current_user %>
+            <form class="form-signin">
+                <h2 class="h5 mb-3 font-weight-normal"> <img src="https://img.icons8.com/ios/50/000000/facebook--v1.png" width ="40" height="40"/> <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %> </h2>
+                <h2 class="h5 mb-3 font-weight-normal"> <img src="https://img.icons8.com/wired/64/000000/github.png" width="40" height="40"/> <%= link_to "Sign in with Github", user_github_omniauth_authorize_path %> </h2>
+                <h2 class="h5 mb-3 font-weight-normal"> <img src="https://img.icons8.com/carbon-copy/100/000000/google-logo.png" width="40" height="40"/> <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %> </h2>
+            </form>
+        <% end %>
+</div>

@@ -17,7 +17,7 @@
             <h2 class="h5 mb-3 font-weight-normal"> <img src="https://img.icons8.com/wired/64/000000/github.png" width="40" height="40"/> <%= link_to "Sign in with Github", user_github_omniauth_authorize_path %> </h2>
             <h2 class="h5 mb-3 font-weight-normal"> <img src="https://img.icons8.com/carbon-copy/100/000000/google-logo.png" width="40" height="40"/> <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %> </h2>
         <% else %>
-            <h3 class="h4 mb-3 font-weight-normal"> <%= link_to "Proceed", destroy_user_session_path, method: :delete %> </h3>
+            <h3 class="h4 mb-3 font-weight-normal"> <%= link_to "Proceed",  categories_path%> </h3>
             <h3 class="h6 mb-3 font-weight-normal"> <%= link_to "Logout", destroy_user_session_path, method: :delete %> </h3>
         <% end %>
     </form>
