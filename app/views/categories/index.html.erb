@@ -5,7 +5,7 @@
             <h1 class="title">Categories</h1>
             <ul class="list-group">
                 <% @categories. each do |c| %>
-                    <a href="#" class="list-group-item list-group-item-action"> <%= c.title %> </a>
+                    <a class="list-group-item list-group-item-action"> <%= link_to c.title, category_products_path(c) %></a>
                 <% end %>
             </ul>
         </div>
