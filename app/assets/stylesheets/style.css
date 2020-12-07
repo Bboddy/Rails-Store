@@ -31,6 +31,12 @@ h2{
   text-align: left;
 }
 
+h6.backwards{
+  padding-top: 1vh;
+  border-top: 2px solid black;
+  padding-bottom: 0.5vh;
+}
+
 .text-center{
   width: 100%;
   height: 100vh;
@@ -75,6 +81,21 @@ a:hover{
   text-align: center;
 }
 
+form{
+  text-align: right;
+  align-items: right;
+  margin-top: 0.5vh;
+  margin-bottom: 0.5vh;
+}
+
+input{
+  margin-left: 1vw;
+}
+
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+  cursor: pointer;
+  margin-right: 1vw;
+}
 @keyframes change {
   0%{ background-position: 0 50%; }
   50%{ background-position: 100% 50%; }
