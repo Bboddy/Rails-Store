@@ -1,10 +1,10 @@
 class ApplicationController < ActionController::Base
     before_action :current_cart
     def current_cart
-        @current_cart ||= Cart.new(token: cart_token)
+        @current_cart ||= ShoppingCart.new(token: cart_token)
     end
     helper_method :current_cart
-
+    
     private
 
     def cart_token
