@@ -38,7 +38,7 @@ h2{
   background: linear-gradient(-45deg, #808080, #606060, #404040, #202020);
   background-size: 400% 400%;
   position: relative;
-  animation: change 10s ease-in-out infinite;
+  animation: change 5s ease-in-out infinite;
   background-repeat: repeat-y;
 }
 
@@ -74,7 +74,6 @@ a:hover{
   cursor: pointer;
   text-align: center;
 }
-
 
 @keyframes change {
   0%{ background-position: 0 50%; }

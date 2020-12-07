@@ -7,11 +7,17 @@
             <h1 class="title"> <%= @category.title %> </h1>
             
             <ul class="list-group">
-                <% @products. each do |p| %>
-                    <a id="products" class="list-group-item list-group-item-action"> <h4 id="product"> <%= p.name %> </h4> <%= number_to_currency p.price%> </a>
+                <% @products. each do |product| %>
+                    <a id="products" class="list-group-item list-group-item-action"> <h4 id="product"> <%= product.name %> </h4> <%= number_to_currency product.price%> </a>
+
+                    <%= form_tag order_items_path do %>
+                        <%= hidden_field_tag :product_id, product.id %>
+                        <%= number_field_tag :quantiy, 1 %>
+                        <%= submit_tag "Add to Cart" %>
+                    <% end %>
                 <% end %>
             </ul>
-            <h6 class="title"> <%= link_to "Back to Categories", '/categories'%> </h6>
+            <h6 class="backwards"> <%= link_to "Back to Categories", '/categories'%> </h6>
         </div>
     <% end %>
 
