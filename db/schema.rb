@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_03_133331) do
+ActiveRecord::Schema.define(version: 2020_12_07_143924) do
 
   create_table "carts", force: :cascade do |t|
     t.decimal "total_price"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 2020_12_03_133331) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.string "quantity"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "order_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string "address"
     t.decimal "total_price"
@@ -35,6 +44,8 @@ ActiveRecord::Schema.define(version: 2020_12_03_133331) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "cart_id"
+    t.string "token"
+    t.decimal "price"
     t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -47,6 +58,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_133331) do
     t.datetime "updated_at", null: false
     t.integer "cart_id"
     t.integer "category_id"
+    t.string "desc"
     t.index ["cart_id"], name: "index_products_on_cart_id"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
