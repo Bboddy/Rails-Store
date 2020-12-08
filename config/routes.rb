@@ -5,6 +5,6 @@ Rails.application.routes.draw do
     resources :products
   end
 
-  get '/cart', to: 'order_items#index'
-    resources :order_items, path: '/cart/items'
+  # get '/cart', to: 'cart#index'
+  resources :cart
 end

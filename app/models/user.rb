@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_one :cart
   has_many :products
   has_many :orders
+  has_many :items, through: :cart
+  
   #Devise
 
   def self.setup()

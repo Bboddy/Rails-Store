@@ -10,7 +10,7 @@
                 <% @products. each do |product| %>
                     <a id="products" class="list-group-item list-group-item-action"> <h4 id="product"> <%= product.name %> </h4> <%= number_to_currency product.price%> </a>
 
-                    <%= form_tag order_items_path do %>
+                    <%= form_tag cart_index_path do %>
                         <%= hidden_field_tag :product_id, product.id %>
                         <%= number_field_tag :quantiy, 1 %>
                         <%= submit_tag "Add to Cart" %>
