@@ -11,7 +11,7 @@
 
   <body class="text-center">
     <nav class="navbar navbar-expand-lg bg-light">
-      <a class="navbar-brand" href="">Rails Shop</a>
+      <a class="navbar-brand" href=""> <%= current_user.name unless current_user.nil? %> </a>
       <div>
         <ul class="navbar-nav">
           <li class="nav-item">
