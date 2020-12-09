@@ -1,19 +1,28 @@
-<h1 class="store-front"> Shop Rails! </h1>
-
 <div>
     <%# If logged in %>
     <% if current_user%>
         <div class="categories">
             <h1>Your Cart</h1>
             <% @items.each do |i| %>
-                <a id="category" class="list-group-item list-group-item-action"> <h4 id="product"> <%= i.product.name %> (<%= i.quanity%>) </h4> </a>
+
+                <%= form_tag cart_index_path do %>
+                    <a id="category" class="list-group-item list-group-item-action"> <h4 id="product"> <%= i.product.name %> </h4>
+                        <br>
+                        <%= hidden_field_tag :product_id, i.product.id %>
+                        <%= hidden_field_tag :item_id, i.id %>
+                        <%= label_tag "Quanity"%>
+                        <%= number_field_tag :quantiy, i.quanity %>
+                        <%= submit_tag "Update Cart" %>
+                    </a>
+                <% end %>
+
             <% end %>
             <h6 class="backwards"> <%= link_to "Back to Categories", '/categories'%> </h6>
         </div>
     <% end %>
 
     <%# If not logged in %>
-        <% unless current_user %>
-            <h1>Please Login to View</h1>
-        <% end %>
+    <% unless current_user %>
+        <h1> <%= link_to "Please Login to View", '/'%> </h1>
+    <% end %>
 </div>
