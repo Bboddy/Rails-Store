@@ -4,10 +4,10 @@ class CartController < ApplicationController
     end
 
     def create
-        @cart = Cart.find_or_create_by(user: current_user)
-        @product = Product.find(params[:product_id])
-        @item = Item.find_or_create_by(product: @product, cart: @cart)
-        @item.update(quanity: params[:quanity])
+        cart = Cart.find_or_create_by(user: current_user)
+        product = Product.find(params[:product_id])
+        item = Item.find_or_create_by(product: product, cart: cart)
+        item.update(quanity: params[:quanity])
 
         # redirect_to cart_path(@cart.id)
     end
@@ -18,7 +18,6 @@ class CartController < ApplicationController
         render 'carts/show'
     end
 
-    def update
-        
-    end
+    private
+    
 end
