@@ -5,14 +5,13 @@
             <h1>Your Cart</h1>
             <% @items.each do |i| %>
 
-                <%= form_tag cart_index_path do %>
+                <%= form_for i, url: cart_path do |f| %>
                     <a id="category" class="list-group-item list-group-item-action"> <h4 id="product"> <%= i.product.name %> </h4>
                         <br>
                         <%= hidden_field_tag :product_id, i.product.id %>
-                        <%= hidden_field_tag :item_id, i.id %>
-                        <%= label_tag "Quanity"%>
-                        <%= number_field_tag :quantiy, i.quanity %>
-                        <%= submit_tag "Update Cart" %>
+                        <%= f.label "Quanity"%>
+                        <%= f.number_field :quanity %>
+                        <%= f.submit "Update Cart" %>
                     </a>
                 <% end %>
 

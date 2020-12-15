@@ -6,10 +6,8 @@ class CartController < ApplicationController
     def create
         cart = Cart.find_or_create_by(user: current_user)
         product = Product.find(params[:product_id])
-        item = Item.find_or_create_by(product: product, cart: cart)
-        item.update(quanity: params[:quanity])
-
-        # redirect_to cart_path(@cart.id)
+        item = Item.find_or_create_by(product: product, cart: cart, quanity: params[:quanity])
+        redirect_to cart_path(cart.id)
     end
 
     def show
@@ -18,6 +16,21 @@ class CartController < ApplicationController
         render 'carts/show'
     end
 
+    def update
+        cart = Cart.find_or_create_by(user: current_user)
+        product = Product.find(params[:product_id])
+        item = Item.find_or_create_by(product: product, cart: cart)
+        if item_params[:quanity].to_i > 1
+            item.update(item_params)
+        else
+            item.destroy
+        end
+        redirect_to cart_path(cart.id)
+    end
+
     private
-    
+
+    def item_params
+        params.require(:item).permit(:quanity)
+    end
 end
