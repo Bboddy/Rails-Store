@@ -9,13 +9,16 @@
                     <a id="category" class="list-group-item list-group-item-action"> <h4 id="product"> <%= i.product.name %> </h4>
                         <br>
                         <%= hidden_field_tag :product_id, i.product.id %>
-                        <%= f.label "Quanity"%>
+                        <%= f.label "Quanity:"%>
                         <%= f.number_field :quanity %>
+                        <%= f.label "Price: $" %>
+                        <%= f.label (i.product.price.to_i * i.quanity.to_i) %>
                         <%= f.submit "Update Cart" %>
                     </a>
                 <% end %>
 
             <% end %>
+            <h5> Total Price: $<%= @cart.total_price %> </h5>
             <h6 class="backwards"> <%= link_to "Back to Categories", '/categories'%> </h6>
         </div>
     <% end %>
