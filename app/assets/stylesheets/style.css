@@ -114,6 +114,10 @@ input{
   margin-left: 1vw;
 }
 
+a{
+  background-color: transparent;
+}
+
 [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
   cursor: pointer;
   margin-right: 1vw;
