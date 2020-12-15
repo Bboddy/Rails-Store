@@ -118,6 +118,29 @@ a{
   background-color: transparent;
 }
 
+p.notice{
+  color: white;
+}
+
+input#user_email{
+  align-items: left;
+  text-align: left;
+  margin-top: 0.2vh;
+}
+
+input#user_password{
+  align-items: left;
+  text-align: left;
+  margin-top: 0.2vh;
+}
+
+input#user_password_confirmation{
+  align-items: left;
+  text-align: left;
+  margin-top: 0.2vh;
+  margin-bottom: 1vh;
+}
+
 [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
   cursor: pointer;
   margin-right: 1vw;

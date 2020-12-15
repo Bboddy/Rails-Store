@@ -5,14 +5,22 @@ class User < ApplicationRecord
   has_many :orders
   has_many :items, through: :cart
   
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, :omniauth_providers => [:facebook, :google_oauth2, :github]
   #Devise
+
+  def self.find_for_database_authentication warden_condition
+    conditions = warden_condition.dup
+    login = conditions.delete(:login)
+    where(conditions).where(
+      ["lower(username) = :value OR lower(email) = :value",
+      { value: login.strip.downcase}]).first
+  end
 
   def self.setup()
     Cart.create(user_id: (self.id))
   end
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook, :google_oauth2, :github]
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.github"] && session["devise.github_data"]["extra"]["raw_info"]
