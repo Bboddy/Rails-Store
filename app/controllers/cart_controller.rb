@@ -3,11 +3,11 @@ class CartController < ApplicationController
         
     end
 
-    def create
+    def create # current_user ? current_user.name : 'Rails Store'
         cart = Cart.find_or_create_by(user: current_user)
         product = Product.find(params[:product_id])
-        item = Item.find_or_create_by(product: product, cart: cart, quanity: params[:quanity])
-        cart.total_price = (item.product.price.to_i * item.quanity.to_i)
+        item = Item.find_or_create_by(product: product, cart: cart)
+        item.quanity ? item.update(quanity: (item.quanity + params[:quantiy].to_i)) : item.update(quanity: params[:quantiy])
         update_total_price()
         redirect_to cart_path(cart.id)
     end
@@ -22,7 +22,6 @@ class CartController < ApplicationController
         cart = Cart.find_or_create_by(user: current_user)
         product = Product.find(params[:product_id])
         item = Item.find_or_create_by(product: product, cart: cart)
-        total = 0
         
         if item_params[:quanity].to_i < 1
             item.destroy

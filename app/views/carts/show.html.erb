@@ -9,9 +9,9 @@
                     <a id="category" class="list-group-item list-group-item-action"> <h4 id="product"> <%= i.product.name %> </h4>
                         <br>
                         <%= hidden_field_tag :product_id, i.product.id %>
-                        <%= f.label "Quanity:"%>
+                        <%= f.label "Quantity:"%>
                         <%= f.number_field :quanity %>
-                        <%= f.label "Price (X#{i.quanity.to_i}) : $ " %>
+                        <%= f.label "Price (X#{i.quanity}) : $ " %>
                         <%= f.label (i.product.price.to_i * i.quanity.to_i) %>
                         <%= f.submit "Update Cart" %>
                     </a>
