@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   end
 
   # get '/cart', to: 'cart#index'
+  get '/checkout', to: 'order#new'
   resources :cart
 end
