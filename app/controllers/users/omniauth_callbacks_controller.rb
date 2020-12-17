@@ -10,7 +10,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
             redirect_to '/'
         end
     end
-    
+
     def google_oauth2
         @user = User.from_omniauth(request.env["omniauth.auth"])
         if @user.persisted?

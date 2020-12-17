@@ -21,6 +21,7 @@ class User < ApplicationRecord
   def self.setup()
     Cart.create(user_id: (self.id))
   end
+  
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.github"] && session["devise.github_data"]["extra"]["raw_info"]

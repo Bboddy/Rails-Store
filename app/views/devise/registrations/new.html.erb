@@ -1,4 +1,6 @@
 
+<div><%= resource.errors.inspect %></div>
+
 <form class="form-signin">
   <h1 class="h3 mb-3 font-weight-normal"> <u>Welcome to the Store</u></h1>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
